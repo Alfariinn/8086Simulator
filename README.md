@@ -1,2 +1,2 @@
 # 8086Simulator
-symaluator procesora 8086
+### Projekt zaprojketowany w języku c# #
