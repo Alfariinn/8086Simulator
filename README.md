@@ -1,2 +1,2 @@
 # 8086Simulator
-### Projekt zaprojketowany w języku c# #
+### Simple console app in c# #
