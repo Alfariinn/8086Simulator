@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Visual Studio Projekty\\8086sim\\8086sim\\8086sim.csproj": {}
+    "E:\\GitHub Repozytoria\\8086Simulator\\8086sim\\8086sim.csproj": {}
   },
   "projects": {
-    "E:\\Visual Studio Projekty\\8086sim\\8086sim\\8086sim.csproj": {
+    "E:\\GitHub Repozytoria\\8086Simulator\\8086sim\\8086sim.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Visual Studio Projekty\\8086sim\\8086sim\\8086sim.csproj",
+        "projectUniqueName": "E:\\GitHub Repozytoria\\8086Simulator\\8086sim\\8086sim.csproj",
         "projectName": "8086sim",
-        "projectPath": "E:\\Visual Studio Projekty\\8086sim\\8086sim\\8086sim.csproj",
+        "projectPath": "E:\\GitHub Repozytoria\\8086Simulator\\8086sim\\8086sim.csproj",
         "packagesPath": "C:\\Users\\Maciek\\.nuget\\packages\\",
-        "outputPath": "E:\\Visual Studio Projekty\\8086sim\\8086sim\\obj\\",
+        "outputPath": "E:\\GitHub Repozytoria\\8086Simulator\\8086sim\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

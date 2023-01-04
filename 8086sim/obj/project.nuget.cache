@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DqzXxFss/usJFam7CofDegSYo9KJ4AaRdaoxfLUBHpFQWjqc8o5tBkhrX3FKhuQ127e7Th6pw65zscctuPLrUQ==",
+  "dgSpecHash": "HGfYFokYr7O1VUBxDKUviB6cQNCeueoyIljO8mCfJTt7e2xAalANHQTwWNVzwr6tb/FIKHi/yAgX99dgnwWExA==",
   "success": true,
-  "projectFilePath": "E:\\Visual Studio Projekty\\8086sim\\8086sim\\8086sim.csproj",
+  "projectFilePath": "E:\\GitHub Repozytoria\\8086Simulator\\8086sim\\8086sim.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -13,3 +13,18 @@ E:\Visual Studio Projekty\8086sim\8086sim\obj\Debug\net6.0\refint\8086sim.dll
 E:\Visual Studio Projekty\8086sim\8086sim\obj\Debug\net6.0\8086sim.pdb
 E:\Visual Studio Projekty\8086sim\8086sim\obj\Debug\net6.0\8086sim.genruntimeconfig.cache
 E:\Visual Studio Projekty\8086sim\8086sim\obj\Debug\net6.0\ref\8086sim.dll
+E:\GitHub Repozytoria\8086Simulator\8086sim\bin\Debug\net6.0\8086sim.exe
+E:\GitHub Repozytoria\8086Simulator\8086sim\bin\Debug\net6.0\8086sim.deps.json
+E:\GitHub Repozytoria\8086Simulator\8086sim\bin\Debug\net6.0\8086sim.runtimeconfig.json
+E:\GitHub Repozytoria\8086Simulator\8086sim\bin\Debug\net6.0\8086sim.dll
+E:\GitHub Repozytoria\8086Simulator\8086sim\bin\Debug\net6.0\8086sim.pdb
+E:\GitHub Repozytoria\8086Simulator\8086sim\obj\Debug\net6.0\8086sim.csproj.AssemblyReference.cache
+E:\GitHub Repozytoria\8086Simulator\8086sim\obj\Debug\net6.0\8086sim.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub Repozytoria\8086Simulator\8086sim\obj\Debug\net6.0\8086sim.AssemblyInfoInputs.cache
+E:\GitHub Repozytoria\8086Simulator\8086sim\obj\Debug\net6.0\8086sim.AssemblyInfo.cs
+E:\GitHub Repozytoria\8086Simulator\8086sim\obj\Debug\net6.0\8086sim.csproj.CoreCompileInputs.cache
+E:\GitHub Repozytoria\8086Simulator\8086sim\obj\Debug\net6.0\8086sim.dll
+E:\GitHub Repozytoria\8086Simulator\8086sim\obj\Debug\net6.0\refint\8086sim.dll
+E:\GitHub Repozytoria\8086Simulator\8086sim\obj\Debug\net6.0\8086sim.pdb
+E:\GitHub Repozytoria\8086Simulator\8086sim\obj\Debug\net6.0\8086sim.genruntimeconfig.cache
+E:\GitHub Repozytoria\8086Simulator\8086sim\obj\Debug\net6.0\ref\8086sim.dll

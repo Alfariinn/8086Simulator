@@ -27,6 +27,8 @@ namespace _8086sim
                 Console.WriteLine();
                 Console.WriteLine("HELP <command> -> shows examples for using certain command.");
                 Console.WriteLine("MOV <destination> <source> -> MOV copies data from source to target destination.");
+                Console.WriteLine("XCHG <reg> <reg> -> Exchanges values between registrys.");
+                Console.WriteLine("EXIT -> exits application");
                 Console.WriteLine();
                 Console.WriteLine();
 
@@ -86,7 +88,50 @@ namespace _8086sim
                             Console.WriteLine("Invalid command use.");
                         }
                         break;
-
+                    case "XCHG":
+                        if (data.Length == 3)
+                        {
+                            Console.WriteLine($"Performing XCHG {data[1]} - {data[2]} ...");
+                            if (data[1] == "AX" || data[1] == "BX"
+                             || data[1] == "CX" || data[1] == "DX")
+                            {
+                                if (data[2] == "AX" || data[2] == "BX"
+                                 || data[2] == "CX" || data[2] == "DX")
+                                {
+                                    XCHG(data[1], data[2], 0);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Invalid command use.");
+                                }
+                            }
+                            else if (data[1] == "AL" || data[1] == "AH"
+                                  || data[1] == "BL" || data[1] == "BH"
+                                  || data[1] == "CL" || data[1] == "CH"
+                                  || data[1] == "DL" || data[1] == "DH")
+                            {
+                                if (data[2] == "AL" || data[2] == "AH"
+                                 || data[2] == "BL" || data[2] == "BH"
+                                 || data[2] == "CL" || data[2] == "CH"
+                                 || data[2] == "DL" || data[2] == "DH")
+                                {
+                                    XCHG(data[1], data[2], 1);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Invalid command use.");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid command use.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Invalid data amount.");
+                        }
+                        break;
                     case "EXIT":
                         return;
                     default:
@@ -95,6 +140,27 @@ namespace _8086sim
                 }
             }
     }
+        private static void XCHG(string s1, string s2, int i1)
+        {
+            if (i1 == 0)
+            {
+                string v1d = GetMainReg(s1);
+                string v2d = GetMainReg(s2);
+                SetRegisterContent(s1, v2d);
+                SetRegisterContent(s2, v1d);
+            }
+            else if (i1 == 1)
+            {
+                string v1d = GetSubReg(s1);
+                string v2d = GetSubReg(s2);
+                SetRegisterContent(s1, v2d);
+                SetRegisterContent(s2, v1d);
+            }
+            else
+            {
+                Console.WriteLine("Error");
+            }
+        }
         private static string GetSubReg(string s1)
         {
             switch (s1)
@@ -372,6 +438,10 @@ namespace _8086sim
                     Console.WriteLine("MOV AX 55 -- Inserts value 55(decimal) to AX.");
                     Console.WriteLine("MOV AX 0Bh -- Inserts value 0x000B(hexadecimal) to AX.");
                     Console.WriteLine("MOV AL 0Bh -- Inserts value 0x0B(hexadecimal) to AL.");
+                    break;
+                case "XCHG":
+                    Console.WriteLine("XCHG AX BX -- Switches value between registrys AX and BX");
+                    Console.WriteLine("XCHG AL BH -- Switches value between registrys AL and BH");
                     break;
                 default:
                     Console.WriteLine($"{s1} is not implemented");
