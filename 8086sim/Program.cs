@@ -19,22 +19,29 @@ namespace _8086sim
                 Console.WriteLine();
                 Console.WriteLine();
                 Console.WriteLine();
-                Console.WriteLine($" AX = {AXContent} BX = {BXContent} CX = {CXContent} DX = {DXContent}  ");
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine($"          AX = {AXContent}               BX = {BXContent}               CX = {CXContent}               DX = {DXContent}  ");
                 Console.WriteLine();
-                Console.WriteLine($" AH = {AHContent} AL = {ALContent} BH = {BHContent} BL = {BLContent} CH = {CHContent} CL = {CLContent} DH = {DHContent} DL = {DLContent}");
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine("HELP <command> -> shows examples for using certain command.");
-                Console.WriteLine("MOV <destination> <source> -> MOV copies data from source to target destination.");
-                Console.WriteLine("XCHG <reg> <reg> -> Exchanges values between registrys.");
-                Console.WriteLine("NOT <reg> -> Exchanges 1 for 0 in binary.");
-                Console.WriteLine("EXIT -> exits application");
+                Console.WriteLine($"    AH = {AHContent}    AL = {ALContent}    BH = {BHContent}    BL = {BLContent}    CH = {CHContent}    CL = {CLContent}    DH = {DHContent}    DL = {DLContent}  ");
                 Console.WriteLine();
                 Console.WriteLine();
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(" HELP <command> -> shows examples for using certain commands.");
+                Console.WriteLine(" MOV <destination> <source> -> MOV copies data from source to target destination.");
+                Console.WriteLine(" XCHG <reg> <reg> -> Exchanges values between registrys.");
+                Console.WriteLine(" NOT <reg> -> Exchanges 1 for 0 in binary.");
+                Console.WriteLine(" EXIT -> exits application");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.Write(" Enter: ");
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
 
                 data = Console.ReadLine().Split();
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write(" Performing: ");
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
                 switch (data[0])
                 {
                     case "HELP":
@@ -57,7 +64,7 @@ namespace _8086sim
                         {
                             if (data.Length == 3)
                             {
-                                Console.WriteLine($"MOV-ing {data[2]} -> {data[1]} ...");
+                                Console.WriteLine($"MOV {data[2]} -> {data[1]} ...");
                                 if (data[2] == "AX" || data[2] == "BX" 
                                  || data[2] == "CX" || data[2] == "DX")
                                 {
@@ -92,7 +99,7 @@ namespace _8086sim
                     case "XCHG":
                         if (data.Length == 3)
                         {
-                            Console.WriteLine($"Performing XCHG {data[1]} - {data[2]} ...");
+                            Console.WriteLine($"XCHG {data[1]} - {data[2]} ...");
                             if (data[1] == "AX" || data[1] == "BX"
                              || data[1] == "CX" || data[1] == "DX")
                             {
@@ -136,7 +143,7 @@ namespace _8086sim
                     case "NOT":
                         if (data.Length == 2)
                         {
-                            Console.WriteLine($"Performing NOT on {data[1]} ...");
+                            Console.WriteLine($"NOT on {data[1]} ...");
                             if (data[1] == "AX" || data[1] == "BX"
                              || data[1] == "CX" || data[1] == "DX")
                             {
@@ -334,7 +341,7 @@ namespace _8086sim
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message + " Registry cleared.");
+                Console.WriteLine(" "+ e.Message + " Registry cleared.");
                 return "0000";
             }
         }
@@ -526,6 +533,9 @@ namespace _8086sim
 
         private static void Help(string s1)
         {
+            Console.Clear();
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Gray;
             switch (s1)
             {
                 case "MOV":
