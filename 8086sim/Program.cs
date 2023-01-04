@@ -28,6 +28,7 @@ namespace _8086sim
                 Console.WriteLine("HELP <command> -> shows examples for using certain command.");
                 Console.WriteLine("MOV <destination> <source> -> MOV copies data from source to target destination.");
                 Console.WriteLine("XCHG <reg> <reg> -> Exchanges values between registrys.");
+                Console.WriteLine("NOT <reg> -> Exchanges 1 for 0 in binary.");
                 Console.WriteLine("EXIT -> exits application");
                 Console.WriteLine();
                 Console.WriteLine();
@@ -132,6 +133,32 @@ namespace _8086sim
                             Console.WriteLine($"Invalid data amount.");
                         }
                         break;
+                    case "NOT":
+                        if (data.Length == 2)
+                        {
+                            Console.WriteLine($"Performing NOT on {data[1]} ...");
+                            if (data[1] == "AX" || data[1] == "BX"
+                             || data[1] == "CX" || data[1] == "DX")
+                            {
+                                NOT(data[1], 0);
+                            }
+                            else if (data[1] == "AL" || data[1] == "AH"
+                                  || data[1] == "BL" || data[1] == "BH"
+                                  || data[1] == "CL" || data[1] == "CH"
+                                  || data[1] == "DL" || data[1] == "DH")
+                            {
+                                NOT(data[1], 1);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid command use.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Invalid data amount.");
+                        }
+                        break;
                     case "EXIT":
                         return;
                     default:
@@ -139,7 +166,74 @@ namespace _8086sim
                         break;
                 }
             }
+        
     }
+        private static void NOT(string s1, int i1)
+        {
+            if (i1 == 0)
+            {
+                string v1d = BinToHex(Invert(HexToBin(GetMainReg(s1), 0)), 0);
+                SetRegisterContent(s1, v1d);
+            }
+            else if (i1 == 1)
+            {
+                string v1d = BinToHex(Invert(HexToBin(GetSubReg(s1), 1)), 1);
+                SetRegisterContent(s1, v1d);
+            }
+            else
+            {
+                Console.WriteLine("Error");
+            }
+        }
+
+        private static string Invert(string s1)
+        {
+            char[] c = s1.ToCharArray();
+            string result = "";
+            for (int i = 0; i < c.Length; i++)
+            {
+                if (c[i] == '0')
+                {
+                    result = result + "1";
+                }
+                else if (c[i] == '1')
+                {
+                    result = result + "0";
+                }
+                else
+                {
+                    Console.WriteLine("Error");
+                }
+            }
+            return result;
+        }
+
+        private static string HexToBin(string s1, int i1)
+        {
+            string result;
+            if (i1 == 1)
+            {
+                result = Convert.ToString(Convert.ToInt32(s1, 16), 2).PadLeft(8, '0');
+            }
+            else
+            {
+                result = Convert.ToString(Convert.ToInt32(s1, 16), 2).PadLeft(16, '0');
+            }
+            return result;
+        }
+
+        private static string BinToHex(string s1, int i1)
+        {
+            if (i1 == 0)
+            {
+                return Convert.ToInt32(s1, 2).ToString("X");
+            }
+            else
+            {
+                return Convert.ToInt32(s1, 2).ToString("X");
+            }
+        }
+
         private static void XCHG(string s1, string s2, int i1)
         {
             if (i1 == 0)
@@ -161,6 +255,7 @@ namespace _8086sim
                 Console.WriteLine("Error");
             }
         }
+
         private static string GetSubReg(string s1)
         {
             switch (s1)
@@ -442,6 +537,10 @@ namespace _8086sim
                 case "XCHG":
                     Console.WriteLine("XCHG AX BX -- Switches value between registrys AX and BX");
                     Console.WriteLine("XCHG AL BH -- Switches value between registrys AL and BH");
+                    break;
+                case "NOT":
+                    Console.WriteLine("NOT AX -- If AX value is 0x04D2 switches it to 0xFB2D");
+                    Console.WriteLine("NOT BH -- If BH value is 0x19 switches it to 0xE6");
                     break;
                 default:
                     Console.WriteLine($"{s1} is not implemented");
